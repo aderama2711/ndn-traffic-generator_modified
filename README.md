@@ -19,6 +19,7 @@ Compiling and running ndn-traffic-generator requires the following dependencies:
 ## Compilation & Installation
 
 ```
+chmod 755 waf
 ./waf configure
 ./waf
 sudo ./waf install
