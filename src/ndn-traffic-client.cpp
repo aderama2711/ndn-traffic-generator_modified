@@ -39,10 +39,18 @@
 #include <boost/program_options/options_description.hpp>
 #include <boost/program_options/parsers.hpp>
 #include <boost/program_options/variables_map.hpp>
-
+//header for zipf-mandelbrot
 #include "discrete_distribution.h"
 #include "discrete_distribution_ii.h"
 #include "zipf-mandelbrot.h"
+//header for custom log
+#include <iostream>
+using std::cerr;
+using std::endl;
+#include <fstream>
+using std::ofstream;
+#include <cstdlib>
+
 
 namespace po = boost::program_options;
 
@@ -293,6 +301,15 @@ private:
     m_logger.log("Average Round Trip Time     = " +
                  to_string(average) + "ms\n", false, true);
 
+    ofstream outdata;
+    outdata.open("log.csv");
+    if( !outdata){
+      cerr << "Error FILE" << endl;
+    }
+
+    outdata << "PatternID,InterestSent,ResponsesReceived,Nacks,InterestLoss,Inconsistency,TotalRTT,AverageRTT" << endl;
+    outdata << "Overall," << to_string(m_nInterestsSent) << "," << to_string(m_nInterestsReceived) << "," << to_string(m_nNacks) << "," << to_string(loss) << "%," << to_string(inconsistency) << "%," << to_string(m_totalInterestRoundTripTime) << "ms," << to_string(average) << "ms" << endl;
+
     for (std::size_t patternId = 0; patternId < m_trafficPatterns.size(); patternId++) {
       m_logger.log("Traffic Pattern Type #" + to_string(patternId + 1), false, true);
       m_trafficPatterns[patternId].printTrafficConfiguration(m_logger);
@@ -322,7 +339,12 @@ private:
       m_logger.log("Total Round Trip Time       = " +
                    to_string(m_trafficPatterns[patternId].m_totalInterestRoundTripTime) + "ms", false, true);
       m_logger.log("Average Round Trip Time     = " + to_string(average) + "ms\n", false, true);
+
+      //Write to CSV
+      outdata << to_string(patternId + 1) << "," << to_string(m_trafficPatterns[patternId].m_nInterestsSent) << "," << to_string(m_trafficPatterns[patternId].m_nInterestsReceived) << "," << to_string(m_trafficPatterns[patternId].m_nNacks) << "," << to_string(loss) << "%," << to_string(inconsistency) << "," << to_string(m_trafficPatterns[patternId].m_totalInterestRoundTripTime) << "ms," << to_string(average) << "ms" << endl;
+
     }
+    outdata.close();
     for (std::size_t patternId = 0; patternId < m_trafficPatterns.size(); patternId++) {
       if(m_trafficPatterns[patternId].m_nInterestsSent > 0){
         m_logger.log(to_string(patternId + 1) + " " + to_string(m_trafficPatterns[patternId].m_nInterestsSent), false, true);
@@ -390,7 +412,7 @@ private:
     if (pattern.m_nameAppendSeqNum) {
       auto seqNum = *pattern.m_nameAppendSeqNum;
       name.appendSequenceNumber(seqNum);
-      pattern.m_nameAppendSeqNum = seqNum + 1;
+      pattern.m_nameAppendSeqNum = seqNum;
     }
     interest.setName(name);
 

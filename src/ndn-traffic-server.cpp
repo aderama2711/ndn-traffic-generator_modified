@@ -39,6 +39,14 @@
 #include <boost/program_options/variables_map.hpp>
 #include <boost/thread/thread.hpp>
 
+//header for custom log
+#include <iostream>
+using std::cerr;
+using std::endl;
+#include <fstream>
+using std::ofstream;
+#include <cstdlib>
+
 namespace po = boost::program_options;
 
 namespace ndn {
@@ -222,12 +230,24 @@ private:
     m_logger.log("Total Interests Received    = " +
                  to_string(m_nInterestsReceived), false, true);
 
+    ofstream outdata;
+    outdata.open("log.csv");
+    if( !outdata){
+      cerr << "Error FILE" << endl;
+    }
+
+    outdata << "PatternID," << "InterestReceived" << endl;
+    outdata << "OverAll," <<  to_string(m_nInterestsReceived) << endl;
+
     for (std::size_t patternId = 0; patternId < m_trafficPatterns.size(); patternId++) {
       m_logger.log("\nTraffic Pattern Type #" + to_string(patternId + 1), false, true);
       m_trafficPatterns[patternId].printTrafficConfiguration(m_logger);
       m_logger.log("Total Interests Received    = " +
                    to_string(m_trafficPatterns[patternId].m_nInterestsReceived) + "\n", false, true);
+      outdata << to_string(patternId + 1) << "," <<  to_string(m_nInterestsReceived) << endl;
     }
+
+    outdata.close();
   }
 
   bool
