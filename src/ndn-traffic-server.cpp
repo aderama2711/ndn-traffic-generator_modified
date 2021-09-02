@@ -244,7 +244,7 @@ private:
       m_trafficPatterns[patternId].printTrafficConfiguration(m_logger);
       m_logger.log("Total Interests Received    = " +
                    to_string(m_trafficPatterns[patternId].m_nInterestsReceived) + "\n", false, true);
-      outdata << to_string(patternId + 1) << "," <<  to_string(m_nInterestsReceived) << endl;
+      outdata << to_string(patternId + 1) << "," <<  to_string(m_trafficPatterns[patternId].m_nInterestsReceived) << endl;
     }
 
     outdata.close();
