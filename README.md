@@ -30,6 +30,7 @@ sudo ./waf install
 + Zipf-Mandelbrot Distribution
 + TrafficPercentage don't have any effect to distribution (preffix generated based on distribution)
 + There is python code for configuration file generator 
++ Generate .csv file
 
 ## Command Line Options
 
