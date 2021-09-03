@@ -307,8 +307,8 @@ private:
       cerr << "Error FILE" << endl;
     }
 
-    outdata << "PatternID,InterestSent,ResponsesReceived,Nacks,InterestLoss,Inconsistency,TotalRTT,AverageRTT" << endl;
-    outdata << "Overall," << to_string(m_nInterestsSent) << "," << to_string(m_nInterestsReceived) << "," << to_string(m_nNacks) << "," << to_string(loss) << "%," << to_string(inconsistency) << "%," << to_string(m_totalInterestRoundTripTime) << "ms," << to_string(average) << "ms" << endl;
+    outdata << "PatternID,InterestSent,ResponsesReceived,Nacks,InterestLoss(%),Inconsistency(%),TotalRTT(ms),AverageRTT(ms)" << endl;
+    outdata << "Overall," << to_string(m_nInterestsSent) << "," << to_string(m_nInterestsReceived) << "," << to_string(m_nNacks) << "," << to_string(loss) << "," << to_string(inconsistency) << "," << to_string(m_totalInterestRoundTripTime) << "," << to_string(average) << "," << endl;
 
     for (std::size_t patternId = 0; patternId < m_trafficPatterns.size(); patternId++) {
       m_logger.log("Traffic Pattern Type #" + to_string(patternId + 1), false, true);
@@ -341,7 +341,7 @@ private:
       m_logger.log("Average Round Trip Time     = " + to_string(average) + "ms\n", false, true);
 
       //Write to CSV
-      outdata << to_string(patternId + 1) << "," << to_string(m_trafficPatterns[patternId].m_nInterestsSent) << "," << to_string(m_trafficPatterns[patternId].m_nInterestsReceived) << "," << to_string(m_trafficPatterns[patternId].m_nNacks) << "," << to_string(loss) << "%," << to_string(inconsistency) << "," << to_string(m_trafficPatterns[patternId].m_totalInterestRoundTripTime) << "ms," << to_string(average) << "ms" << endl;
+      outdata << to_string(patternId + 1) << "," << to_string(m_trafficPatterns[patternId].m_nInterestsSent) << "," << to_string(m_trafficPatterns[patternId].m_nInterestsReceived) << "," << to_string(m_trafficPatterns[patternId].m_nNacks) << "," << to_string(loss) << "," << to_string(inconsistency) << "," << to_string(m_trafficPatterns[patternId].m_totalInterestRoundTripTime) << "," << to_string(average) << endl;
 
     }
     outdata.close();
