@@ -105,7 +105,7 @@ class zipf_mandelbrot_distribution {
                                                                    N_(N),
                                                                    probs_(1) {
 
-        if ( !(s_ > 1.0) ) {
+        if ( !(s_ > 0.0) ) {
             fprintf( stderr, "s (%g) must be greater than 1.0.\n", s_);
             abort();
         }
