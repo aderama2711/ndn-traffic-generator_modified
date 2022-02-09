@@ -43,7 +43,7 @@ def main(argv):
             freshness = arg
         elif opt in ("-c", "--contentsize") :
             csize = arg
-            string = ''.join("A" for _ in range(csize))
+            string = ''.join('A' for _ in range(csize))
 
     #generate client.conf
     file = open("client.conf","wb")
