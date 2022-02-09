@@ -17,13 +17,13 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv,"hs:n:p:m:f:c:",["help","size=","name=","prefix=","mode=","freshness=","contentsize="])
     except getopt.GetoptError:
-        print 'use -h or --help for help'
+        print ('use -h or --help for help')
         sys.exit(2)
 
     #checking argument
     for opt, arg in opts :
         if opt in ("-h", "--help") :
-            print "Generator for \"ndn-traffic-generator\" configuration file!\nOptions :\n\t-h [ --help ] arg \t\tPrint this help message and hope it helps :)\n\t-s [ --size ] arg \t\tSet number of prefix, default = 100\n\t-n [ --name ] arg \t\tSet name for every TrafficPattern, format = (name)/traffic(iteration_number)\n\t\t\t\t\tExample : \n\t\t\t\t\tif input name = /ndn/telu/fte/%C1.Router/router2 \n\t\t\t\t\tthen name for TrafficPattern 1 is /ndn/telu/fte/%%C1.Router/router2/prefix1 and so on\n\t-p [ --prefix ] arg \t\tSet prefix name, format = (prefix)(iteration_number)\n\t\t\t\t\tExample : \n\t\t\t\t\tif input prefix = /ndn/telu/fif/lab then prefix for Pattern Traffic 1 is /ndn/telu/fif/lab1 and so on\n\t-m [ --mode ] arg \t\tInput 1 for MustBeFresh true and 0 for MustBeFresh false, default=1\n\t-f [ --freshness ] arg \t\tSet FreshnessPeriod in ms, default = 1\n\t-c [ --contentsize ] arg \t\tSet ContentSize in Bytes, default = 1000"
+            print ("Generator for \"ndn-traffic-generator\" configuration file!\nOptions :\n\t-h [ --help ] arg \t\tPrint this help message and hope it helps :)\n\t-s [ --size ] arg \t\tSet number of prefix, default = 100\n\t-n [ --name ] arg \t\tSet name for every TrafficPattern, format = (name)/traffic(iteration_number)\n\t\t\t\t\tExample : \n\t\t\t\t\tif input name = /ndn/telu/fte/%C1.Router/router2 \n\t\t\t\t\tthen name for TrafficPattern 1 is /ndn/telu/fte/%%C1.Router/router2/prefix1 and so on\n\t-p [ --prefix ] arg \t\tSet prefix name, format = (prefix)(iteration_number)\n\t\t\t\t\tExample : \n\t\t\t\t\tif input prefix = /ndn/telu/fif/lab then prefix for Pattern Traffic 1 is /ndn/telu/fif/lab1 and so on\n\t-m [ --mode ] arg \t\tInput 1 for MustBeFresh true and 0 for MustBeFresh false, default=1\n\t-f [ --freshness ] arg \t\tSet FreshnessPeriod in ms, default = 1\n\t-c [ --contentsize ] arg \t\tSet ContentSize in Bytes, default = 1000")
             sys.exit()
         elif opt in ("-s", "--size") :
             size = int(arg)
