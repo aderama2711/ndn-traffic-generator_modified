@@ -11,10 +11,11 @@ def main(argv):
     prefix = "/ndn/telu/fif/lab/ndn"
     mode = True
     freshness = 1
+    csize = 1000
 
     #initialize argument
     try:
-        opts, args = getopt.getopt(argv,"hs:n:p:m:f:",["help","size=","name=","prefix","mode","freshness"])
+        opts, args = getopt.getopt(argv,"hs:n:p:m:f:c:",["help","size=","name=","prefix=","mode=","freshness=","contentsize="])
     except getopt.GetoptError:
         print 'use -h or --help for help'
         sys.exit(2)
@@ -40,12 +41,14 @@ def main(argv):
                 sys.exit(2)
         elif opt in ("-f", "--freshness") :
             freshness = arg
+        elif opt in ("-c", "--contentsize") :
+            csize = arg
 
     #generate client.conf
     file = open("client.conf","wb")
     string=""
     for i in range(1,size+1) :
-        string = string + "\n\nTrafficPercentage=1\nName="+name+"/traffic"+str(i)+"\nExpectedContent="+prefix+str(i)+"\nMustBeFresh="+str(mode)
+        string = string + "\n\nTrafficPercentage=1\nName="+name+"/traffic"+str(i)+"\nExpectedContent="+prefix+str(i)+"\nMustBeFresh="+str(mode)+"\nContentBytes="+str(csize)
     file.write(string.encode())
     file.close
 
