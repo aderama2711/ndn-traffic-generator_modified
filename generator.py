@@ -58,7 +58,7 @@ def main(argv):
     file = open("server.conf","wb")
     string = ""
     for i in range(1,size+1) :
-        string = string + "\n\nName="+name+"/traffic"+str(i)+"\nContent="+prefix+str(i)+"\nFreshnessPeriod="+str(freshness)+"\nContentBytes="+str(csize)
+        string = string + "\n\nName="+name+"/traffic"+str(i)+"\nContent="+prefix+str(i)+"\nFreshnessPeriod="+str(freshness)+"\nContentBytes="+str(csize)+"\nContent=AAAAAAAA"
     file.write(string.encode())
     file.close
 
