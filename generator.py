@@ -45,7 +45,6 @@ def main(argv):
             freshness = arg
         elif opt in ("-c", "--contentsize") :
             csize = arg
-            ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = csize))
 
     #generate client.conf
     file = open("client.conf","wb")
@@ -61,7 +60,7 @@ def main(argv):
     file = open("server.conf","wb")
     string = ""
     for i in range(1,size+1) :
-        string = string + "\n\nName="+name+"/traffic"+str(i)+"\nContent="+prefix+str(i)+"\nFreshnessPeriod="+str(freshness)+"\nContentBytes="+str(csize)+"\nContent="+str(ran)
+        string = string + "\n\nName="+name+"/traffic"+str(i)+"\nContent="+prefix+str(i)+"\nFreshnessPeriod="+str(freshness)+"\nContentBytes="+str(csize)+"\nContent="+"A"*csize
     file.write(string.encode())
     file.close
 
