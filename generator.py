@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
 import sys, getopt
-import random
-import string 
 
 def main(argv):
     print("Program started!\nFor help, check -h or --help option\n")
@@ -45,6 +43,7 @@ def main(argv):
             freshness = arg
         elif opt in ("-c", "--contentsize") :
             csize = arg
+            string = "A"*csize
 
     #generate client.conf
     file = open("client.conf","wb")
@@ -60,7 +59,7 @@ def main(argv):
     file = open("server.conf","wb")
     string = ""
     for i in range(1,size+1) :
-        string = string + "\n\nName="+name+"/traffic"+str(i)+"\nContent="+prefix+str(i)+"\nFreshnessPeriod="+str(freshness)+"\nContentBytes="+str(csize)+"\nContent="+"A"*csize
+        string = string + "\n\nName="+name+"/traffic"+str(i)+"\nContent="+prefix+str(i)+"\nFreshnessPeriod="+str(freshness)+"\nContentBytes="+str(csize)+"\nContent="+string
     file.write(string.encode())
     file.close
 
