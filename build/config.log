@@ -1,16 +1,16 @@
-# project ndn-traffic-generator (0.1) configured on Wed Sep 14 10:56:49 2022 by
-# waf 2.0.20 (abi 20, python 30a04f0 on linux)
+# project ndn-traffic-generator (0.1) configured on Thu Nov  3 10:29:08 2022 by
+# waf 2.0.20 (abi 20, python 30a06f0 on linux)
 # using ./waf configure
 #
 ----------------------------------------
 Setting top to
-/home/aderama/3. NDN/my_program/ndn-traffic-generator_modified
+/home/aderama/3. NDN/ndn-traffic-generator_modified
 ----------------------------------------
 Setting out to
-/home/aderama/3. NDN/my_program/ndn-traffic-generator_modified/build
+/home/aderama/3. NDN/ndn-traffic-generator_modified/build
 ----------------------------------------
 Checking for 'g++' (C++ compiler)
-find program=['g++', 'c++'] paths=['/home/aderama/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/snap/bin'] var='CXX' -> ['/usr/bin/g++']
+find program=['g++', 'c++'] paths=['/home/aderama/.local/bin', '/home/aderama/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/snap/bin'] var='CXX' -> ['/usr/bin/g++']
 ['/usr/bin/g++', '-dM', '-E', '-']
 out: #define __SSP_STRONG__ 3
 #define __DBL_MIN_EXP__ (-1021)
@@ -178,7 +178,7 @@ out: #define __SSP_STRONG__ 3
 #define __DEC128_MAX__ 9.999999999999999999999999999999999E6144DL
 #define __FLT_MANT_DIG__ 24
 #define __LDBL_DECIMAL_DIG__ 21
-#define __VERSION__ "11.2.0"
+#define __VERSION__ "11.3.0"
 #define __UINT64_C(c) c ## UL
 #define _STDC_PREDEF_H 1
 #define __INT_LEAST32_MAX__ 0x7fffffff
@@ -352,7 +352,7 @@ out: #define __SSP_STRONG__ 3
 #define __DEC128_MAX_EXP__ 6145
 #define __FLT32X_HAS_QUIET_NAN__ 1
 #define __ATOMIC_CONSUME 1
-#define __GNUC_MINOR__ 2
+#define __GNUC_MINOR__ 3
 #define __INT_FAST16_WIDTH__ 64
 #define __UINTMAX_MAX__ 0xffffffffffffffffUL
 #define __PIE__ 2
@@ -380,11 +380,11 @@ out: #define __SSP_STRONG__ 3
 #define __ATOMIC_ACQ_REL 4
 #define __ATOMIC_RELEASE 3
 
-find program=['ar'] paths=['/home/aderama/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/snap/bin'] var='AR' -> ['/usr/bin/ar']
+find program=['ar'] paths=['/home/aderama/.local/bin', '/home/aderama/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/snap/bin'] var='AR' -> ['/usr/bin/ar']
 /usr/bin/g++
 ----------------------------------------
 Checking C++ compiler version
-11.2.0
+11.3.0
 ----------------------------------------
 Checking supported CXXFLAGS
 ==>
@@ -397,10 +397,10 @@ int main(int argc, char **argv) {
 <==
 [1/2] Compiling [32mbuild/.conf_check_a8ebeef3cf2874c2e735b2a253d06665/test.cpp[0m
 
-['/usr/bin/g++', '-Werror', '-std=c++14', '../test.cpp', '-c', '-o/home/aderama/3. NDN/my_program/ndn-traffic-generator_modified/build/.conf_check_a8ebeef3cf2874c2e735b2a253d06665/testbuild/test.cpp.1.o']
+['/usr/bin/g++', '-Werror', '-std=c++14', '../test.cpp', '-c', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_a8ebeef3cf2874c2e735b2a253d06665/testbuild/test.cpp.1.o']
 [2/2] Linking [33mbuild/.conf_check_a8ebeef3cf2874c2e735b2a253d06665/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o/home/aderama/3. NDN/my_program/ndn-traffic-generator_modified/build/.conf_check_a8ebeef3cf2874c2e735b2a253d06665/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_a8ebeef3cf2874c2e735b2a253d06665/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 -std=c++14
 ----------------------------------------
 Checking supported LINKFLAGS
@@ -414,22 +414,150 @@ int main(int argc, char **argv) {
 <==
 [1/2] Compiling [32mbuild/.conf_check_841792a9e403972e315823b70a8ee211/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++14', '../test.cpp', '-c', '-o/home/aderama/3. NDN/my_program/ndn-traffic-generator_modified/build/.conf_check_841792a9e403972e315823b70a8ee211/testbuild/test.cpp.1.o']
+['/usr/bin/g++', '-std=c++14', '../test.cpp', '-c', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_841792a9e403972e315823b70a8ee211/testbuild/test.cpp.1.o']
 [2/2] Linking [33mbuild/.conf_check_841792a9e403972e315823b70a8ee211/testbuild/testprog[0m
 
-['/usr/bin/g++', '-Werror', '-fuse-ld=gold', 'test.cpp.1.o', '-o/home/aderama/3. NDN/my_program/ndn-traffic-generator_modified/build/.conf_check_841792a9e403972e315823b70a8ee211/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', '-Werror', '-fuse-ld=gold', 'test.cpp.1.o', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_841792a9e403972e315823b70a8ee211/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 -fuse-ld=gold
 ----------------------------------------
 Checking for program 'pkg-config'
 /usr/bin/pkg-config
-find program=['pkg-config'] paths=['/home/aderama/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/snap/bin'] var='PKGCONFIG' -> ['/usr/bin/pkg-config']
+find program=['pkg-config'] paths=['/home/aderama/.local/bin', '/home/aderama/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin', '/snap/bin'] var='PKGCONFIG' -> ['/usr/bin/pkg-config']
 ----------------------------------------
 Checking for 'libndn-cxx'
 ['/usr/bin/pkg-config', '--cflags', '--libs', 'libndn-cxx']
-err: Package libndn-cxx was not found in the pkg-config search path.
-Perhaps you should add the directory containing `libndn-cxx.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'libndn-cxx' found
+out: -DBOOST_STACKTRACE_DYN_LINK -DBOOST_LOG_DYN_LINK -DBOOST_FILESYSTEM_NO_DEPRECATED -I/usr/local/include -L/usr/local/lib -lndn-cxx -lboost_system -lboost_program_options -lboost_chrono -lboost_date_time -lboost_filesystem -lboost_thread -lboost_log -lboost_stacktrace_backtrace -lcrypto -lsqlite3 -latomic -lrt -lpthread
 
-not found
-from /home/aderama/3. NDN/my_program/ndn-traffic-generator_modified: The configuration failed
+yes
+----------------------------------------
+Checking supported CXXFLAGS
+==>
+
+int main(int argc, char **argv) {
+	(void)argc; (void)argv;
+	return 0;
+}
+
+<==
+[1/2] Compiling [32mbuild/.conf_check_6e9924c4e813a12b87d3bf55eda42ceb/test.cpp[0m
+
+['/usr/bin/g++', '-std=c++14', '-Werror', '-O2', '-DHAVE_NDN_CXX=1', '../test.cpp', '-c', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_6e9924c4e813a12b87d3bf55eda42ceb/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_6e9924c4e813a12b87d3bf55eda42ceb/testbuild/testprog[0m
+
+['/usr/bin/g++', '-fuse-ld=gold', 'test.cpp.1.o', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_6e9924c4e813a12b87d3bf55eda42ceb/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+==>
+
+int main(int argc, char **argv) {
+	(void)argc; (void)argv;
+	return 0;
+}
+
+<==
+[1/2] Compiling [32mbuild/.conf_check_5cb416585c0b23f5a7b2f5c832c9c5f0/test.cpp[0m
+
+['/usr/bin/g++', '-std=c++14', '-Werror', '-g', '-DHAVE_NDN_CXX=1', '../test.cpp', '-c', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_5cb416585c0b23f5a7b2f5c832c9c5f0/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_5cb416585c0b23f5a7b2f5c832c9c5f0/testbuild/testprog[0m
+
+['/usr/bin/g++', '-fuse-ld=gold', 'test.cpp.1.o', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_5cb416585c0b23f5a7b2f5c832c9c5f0/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+==>
+
+int main(int argc, char **argv) {
+	(void)argc; (void)argv;
+	return 0;
+}
+
+<==
+[1/2] Compiling [32mbuild/.conf_check_f587845fc35f6ff1a3031f32374d01a5/test.cpp[0m
+
+['/usr/bin/g++', '-std=c++14', '-Werror', '-pedantic', '-DHAVE_NDN_CXX=1', '../test.cpp', '-c', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_f587845fc35f6ff1a3031f32374d01a5/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_f587845fc35f6ff1a3031f32374d01a5/testbuild/testprog[0m
+
+['/usr/bin/g++', '-fuse-ld=gold', 'test.cpp.1.o', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_f587845fc35f6ff1a3031f32374d01a5/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+==>
+
+int main(int argc, char **argv) {
+	(void)argc; (void)argv;
+	return 0;
+}
+
+<==
+[1/2] Compiling [32mbuild/.conf_check_4749d9e8c04507dda76b3fefd1a26dd1/test.cpp[0m
+
+['/usr/bin/g++', '-std=c++14', '-Werror', '-Wall', '-DHAVE_NDN_CXX=1', '../test.cpp', '-c', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_4749d9e8c04507dda76b3fefd1a26dd1/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_4749d9e8c04507dda76b3fefd1a26dd1/testbuild/testprog[0m
+
+['/usr/bin/g++', '-fuse-ld=gold', 'test.cpp.1.o', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_4749d9e8c04507dda76b3fefd1a26dd1/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+==>
+
+int main(int argc, char **argv) {
+	(void)argc; (void)argv;
+	return 0;
+}
+
+<==
+[1/2] Compiling [32mbuild/.conf_check_7f31cb7e73c3a618d739468613687f75/test.cpp[0m
+
+['/usr/bin/g++', '-std=c++14', '-Werror', '-Wextra', '-DHAVE_NDN_CXX=1', '../test.cpp', '-c', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_7f31cb7e73c3a618d739468613687f75/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_7f31cb7e73c3a618d739468613687f75/testbuild/testprog[0m
+
+['/usr/bin/g++', '-fuse-ld=gold', 'test.cpp.1.o', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_7f31cb7e73c3a618d739468613687f75/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+==>
+
+int main(int argc, char **argv) {
+	(void)argc; (void)argv;
+	return 0;
+}
+
+<==
+[1/2] Compiling [32mbuild/.conf_check_26357bb70aa2f4f90478aedb8f7628d3/test.cpp[0m
+
+['/usr/bin/g++', '-std=c++14', '-Werror', '-Wnon-virtual-dtor', '-DHAVE_NDN_CXX=1', '../test.cpp', '-c', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_26357bb70aa2f4f90478aedb8f7628d3/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_26357bb70aa2f4f90478aedb8f7628d3/testbuild/testprog[0m
+
+['/usr/bin/g++', '-fuse-ld=gold', 'test.cpp.1.o', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_26357bb70aa2f4f90478aedb8f7628d3/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+==>
+
+int main(int argc, char **argv) {
+	(void)argc; (void)argv;
+	return 0;
+}
+
+<==
+[1/2] Compiling [32mbuild/.conf_check_94f8a1fce90ed9c50731a3bf40b9f531/test.cpp[0m
+
+['/usr/bin/g++', '-std=c++14', '-Werror', '-Wno-unused-parameter', '-DHAVE_NDN_CXX=1', '../test.cpp', '-c', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_94f8a1fce90ed9c50731a3bf40b9f531/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_94f8a1fce90ed9c50731a3bf40b9f531/testbuild/testprog[0m
+
+['/usr/bin/g++', '-fuse-ld=gold', 'test.cpp.1.o', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_94f8a1fce90ed9c50731a3bf40b9f531/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+==>
+
+int main(int argc, char **argv) {
+	(void)argc; (void)argv;
+	return 0;
+}
+
+<==
+[1/2] Compiling [32mbuild/.conf_check_a2d74fcbeb8e363de2d9ac90ea844be5/test.cpp[0m
+
+['/usr/bin/g++', '-std=c++14', '-Werror', '-fdiagnostics-color', '-DHAVE_NDN_CXX=1', '../test.cpp', '-c', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_a2d74fcbeb8e363de2d9ac90ea844be5/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_a2d74fcbeb8e363de2d9ac90ea844be5/testbuild/testprog[0m
+
+['/usr/bin/g++', '-fuse-ld=gold', 'test.cpp.1.o', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_a2d74fcbeb8e363de2d9ac90ea844be5/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+-O2 -g -pedantic -Wall -Wextra -Wnon-virtual-dtor -Wno-unused-parameter -fdiagnostics-color
+----------------------------------------
+Checking supported LINKFLAGS
+==>
+
+int main(int argc, char **argv) {
+	(void)argc; (void)argv;
+	return 0;
+}
+
+<==
+[1/2] Compiling [32mbuild/.conf_check_14e4ae6a9884b49336376db4e3a4b320/test.cpp[0m
+
+['/usr/bin/g++', '-O2', '-g', '-pedantic', '-Wall', '-Wextra', '-Wnon-virtual-dtor', '-Wno-unused-parameter', '-fdiagnostics-color', '-std=c++14', '-DHAVE_NDN_CXX=1', '../test.cpp', '-c', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_14e4ae6a9884b49336376db4e3a4b320/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_14e4ae6a9884b49336376db4e3a4b320/testbuild/testprog[0m
+
+['/usr/bin/g++', '-fuse-ld=gold', '-Werror', '-Wl,-O1', 'test.cpp.1.o', '-o/home/aderama/3. NDN/ndn-traffic-generator_modified/build/.conf_check_14e4ae6a9884b49336376db4e3a4b320/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+-Wl,-O1

@@ -1,7 +1,12 @@
-# NDN Traffic Generator Modified
+# NDN Traffic Generator Modified (DEPRECATED)
 
 ![Language](https://img.shields.io/badge/C%2B%2B-14-blue.svg)
 [![Build Status](https://travis-ci.org/named-data/ndn-traffic-generator.svg?branch=master)](https://travis-ci.org/named-data/ndn-traffic-generator)
+
+## LATEST WORKING VERSION
++ ndn-cxx v0.7.1
++ nfd v0.7.1
++ for maintained version, please refer https://github.com/aderama2711/ndn-traffic-generator
 
 This tool is designed to generate Interest and Data traffic in an NDN network.
 The client and server tool accept traffic configuration files which can be
