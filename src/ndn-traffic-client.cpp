@@ -110,6 +110,15 @@ public:
   run()
   {
     m_logger.initializeLog(to_string(random::generateWord32()));
+    
+    ofstream outfile;
+    outfile.open("interest.csv");
+    if( !outfile){
+      cerr << "Error FILE" << endl;
+    }
+    
+    outfile << "interest,rtt(ms)" << endl;
+    outfile.close();
 
     if (!readConfigurationFile(m_configurationFile, m_trafficPatterns, m_logger)) {
       return 2;
@@ -436,8 +445,14 @@ private:
 
   void
   onData(const Data& data, int globalRef, int localRef, std::size_t patternId,
-         const time::steady_clock::TimePoint& sentTime)
+         const time::steady_clock::TimePoint& sentTime, const Interest& interest )
   {
+    ofstream outfile;
+    outfile.open("interest.csv", std::ios_base::app);
+    if( !outfile){
+      cerr << "Error FILE" << endl;
+    }
+    
     auto logLine = "Data Received      - PatternType=" + to_string(patternId + 1) +
                    ", GlobalID=" + to_string(globalRef) +
                    ", LocalID=" + to_string(localRef) +
@@ -476,7 +491,12 @@ private:
       m_trafficPatterns[patternId].m_maximumInterestRoundTripTime = roundTripTime;
     m_totalInterestRoundTripTime += roundTripTime;
     m_trafficPatterns[patternId].m_totalInterestRoundTripTime += roundTripTime;
-
+    
+    logLine += ", Rtt=" + to_string(roundTripTime);
+    
+    outfile << interest << "," << to_string(roundTripTime) << endl;
+    outfile.close();
+    
     if (m_nMaximumInterests == globalRef) {
       stop();
     }
@@ -536,7 +556,7 @@ private:
 
     if (pil == 3){
       static rng::zipf_mandelbrot_distribution<rng::discrete_distribution_30bit,int> trafficDistZipf(zipffactor, qvalue, nprefix);
-      trafficKey = trafficDistZipf(random::getRandomNumberEngine());
+      trafficKey = trafficDistZipf(random::getRandomNumberEngine()) - qvalue;
     }
 
     int cumulativePercentage = 0;
@@ -551,7 +571,7 @@ private:
           auto sentTime = time::steady_clock::now();
           m_face.expressInterest(interest,
                                  bind(&NdnTrafficClient::onData, this, _2, m_nInterestsSent,
-                                      m_trafficPatterns[patternId].m_nInterestsSent, patternId, sentTime),
+                                      m_trafficPatterns[patternId].m_nInterestsSent, patternId, sentTime, interest),
                                  bind(&NdnTrafficClient::onNack, this, _1, _2, m_nInterestsSent,
                                       m_trafficPatterns[patternId].m_nInterestsSent, patternId),
                                  bind(&NdnTrafficClient::onTimeout, this, _1, m_nInterestsSent,
